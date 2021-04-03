@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content lock</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-lock-part {
+            display: flex;
+        }
+
+        .locked-content-part {
+            display: none;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <div class="social-lock-part">
+        <div class="instagram-btn">
+            <button>follow on instagram</button>
+
+
+
+
+
+
+
+
+
+
+
+            
+        </div>
+        <div class="spotify-follow">
+            <button>follow on spotify</button>
+        </div>
+    </div>
+    <div class="locked-content-part">
+        <h1>this is a locked content</h1>
+        <h3>you can only access this part when you like and follow</h3>
+    </div>
+
+    <script>
+
+        const instagram = document.querySelector('.instagram-btn')
+        const spotify = document.querySelector('.spotify-follow')
+        const lockedcontent = document.querySelector('.locked-content-part')
+        const sociallock = document.querySelector('.social-lock-part')
+
+        let followedinstagram = false
+        let followedspotify = false
+
+        instagram.addEventListener('click', () => {
+            followedinstagram = true
+            if (followedspotify) {
+                lockedcontent.style.display = 'block'
+                sociallock.style.display = 'none'
+            }
+        })
+        spotify.addEventListener('click', () => {
+            followedspotify = true;
+            if (followedinstagram) {
+                lockedcontent.style.display = 'block'
+                sociallock.style.display = 'none'
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
